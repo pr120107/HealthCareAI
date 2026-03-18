@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI HealthCare - Your Smart Health Assistant</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>AI HealthCare</span>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#body-map">Body Map</a></li>
+                <li><a href="#ai-chat">AI Chat</a></li>
+                <li><a href="#stress-relief">Stress Relief</a></li>
+                <li><a href="cancer-articles.html">Cancer Articles</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+
+            <!-- Language Dropdown -->
+            <div class="language-dropdown">
+                <button class="lang-btn">
+                    <i class="fas fa-globe"></i>
+                    <span>English</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#" data-lang="en">🇬🇧 English</a>
+                    <a href="#" data-lang="hi">🇮🇳 हिन्दी</a>
+                    <a href="#" data-lang="bn">🇮🇳 বাংলা</a>
+                    <a href="#" data-lang="te">🇮🇳 తెలుగు</a>
+                    <a href="#" data-lang="ta">🇮🇳 தமிழ்</a>
+                    <a href="#" data-lang="mr">🇮🇳 मराठी</a>
+                    <a href="#" data-lang="gu">🇮🇳 ગુજરાતી</a>
+                </div>
+            </div>
+
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Your AI-Powered Health Assistant</h1>
+            <p>Get instant health information, symptom analysis, and expert articles powered by artificial intelligence</p>
+            <div class="hero-buttons">
+                <a href="#body-map" class="btn btn-primary">Explore Body Map</a>
+                <a href="#ai-chat" class="btn btn-secondary">Try AI Chat</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <i class="fas fa-stethoscope"></i>
+        </div>
+    </section>
+
+    <!-- Body Map Section -->
+    <section id="body-map" class="body-map">
+        <h2 class="section-title">Interactive Body Map</h2>
+        <p class="section-subtitle">Click on any body part to learn more</p>
+        
+        <div class="body-map-container">
+            <div class="body-outline">
+                <svg viewBox="0 0 200 450" class="body-svg">
+                    <!-- Head -->
+                    <ellipse id="head" class="body-part" data-part="head" cx="100" cy="45" rx="18" ry="22" />
+                    
+                    <!-- Neck -->
+                    <rect id="neck" class="body-part" data-part="neck" x="95" y="67" width="10" height="15" rx="2" />
+                    
+                    <!-- Shoulders -->
+                    <path id="shoulders" class="body-part" data-part="shoulders" d="M75 82 L125 82 L135 95 L65 95 Z" />
+                    
+                    <!-- Chest -->
+                    <rect id="chest" class="body-part" data-part="chest" x="80" y="82" width="40" height="35" rx="3" />
+                    
+                    <!-- Arms -->
+                    <rect id="left-arm" class="body-part" data-part="left-arm" x="50" y="87" width="20" height="60" rx="3" />
+                    <rect id="right-arm" class="body-part" data-part="right-arm" x="130" y="87" width="20" height="60" rx="3" />
+                    
+                    <!-- Stomach -->
+                    <rect id="upper-stomach" class="body-part" data-part="stomach" x="80" y="117" width="40" height="20" rx="2" />
+                    <rect id="lower-stomach" class="body-part" data-part="stomach" x="80" y="137" width="40" height="20" rx="2" />
+                    
+                    <!-- Waist -->
+                    <path id="waist" class="body-part" data-part="waist" d="M75 157 L125 157 L135 175 L65 175 Z" />
+                    
+                    <!-- Legs -->
+                    <rect id="left-thigh" class="body-part" data-part="left-leg" x="75" y="175" width="18" height="50" rx="3" />
+                    <rect id="right-thigh" class="body-part" data-part="right-leg" x="107" y="175" width="18" height="50" rx="3" />
+                    
+                    <!-- Knees -->
+                    <circle id="left-knee" class="body-part" data-part="left-leg" cx="84" cy="230" r="8" />
+                    <circle id="right-knee" class="body-part" data-part="right-leg" cx="116" cy="230" r="8" />
+                    
+                    <!-- Calves -->
+                    <rect id="left-calf" class="body-part" data-part="left-leg" x="75" y="238" width="18" height="45" rx="3" />
+                    <rect id="right-calf" class="body-part" data-part="right-leg" x="107" y="238" width="18" height="45" rx="3" />
+                    
+                    <!-- Feet -->
+                    <rect id="left-foot" class="body-part" data-part="left-foot" x="75" y="283" width="18" height="10" rx="2" />
+                    <rect id="right-foot" class="body-part" data-part="right-foot" x="107" y="283" width="18" height="10" rx="2" />
+                </svg>
+            </div>
+            
+            <div id="info-panel" class="info-panel">
+                <h3>👤 Select a body part</h3>
+                <p>Click on any part of the body outline above to get detailed medical information</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Chat Section -->
+    <section id="ai-chat" class="ai-chat">
+        <h2 class="section-title">AI Health Chatbot</h2>
+        <p class="section-subtitle">Describe your symptoms and get instant information</p>
+        
+        <div class="chat-container">
+            <div class="chat-header">
+                <i class="fas fa-robot"></i>
+                <span>AI Health Assistant</span>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+                <div class="message bot-message">
+                    <div class="message-content">
+                        Hello! I'm your AI health assistant. Please describe your symptoms below.
+                    </div>
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="user-input" placeholder="Type your symptoms here... (e.g., headache, fever, cough)">
+                <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
+            </div>
+            <div class="chat-suggestions">
+                <button class="suggestion-btn" data-symptom="headache">🤕 Headache</button>
+                <button class="suggestion-btn" data-symptom="fever">🌡️ Fever</button>
+                <button class="suggestion-btn" data-symptom="cough">🤧 Cough</button>
+                <button class="suggestion-btn" data-symptom="stomach pain">🫄 Stomach Pain</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stress Relief Section with Enhanced Breathing Exercise -->
+        <!-- Stress Relief Section with Working Breathing Exercise -->
+    <section id="stress-relief" class="stress-relief">
+        <h2 class="section-title">🧘 Stress Relief Exercise</h2>
+        <p class="section-subtitle">Take a moment to breathe and relax with guided breathing</p>
+        
+        <div class="stress-container">
+            <div class="breathing-card">
+                <div class="breathing-visual">
+                    <div class="breathing-circle-container">
+                        <div class="breathing-circle" id="breathing-circle">
+                            <div class="circle-inner"></div>
+                        </div>
+                        <div class="breathing-text">
+                            <span id="breath-phase">Inhale</span>
+                            <span id="breath-count">4</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timer-display" id="timer-display">4s</div>
+                
+                <div class="breathing-controls">
+                    <button id="start-breath" class="btn btn-primary">
+                        <i class="fas fa-play"></i> Start
+                    </button>
+                    <button id="pause-breath" class="btn btn-secondary">
+                        <i class="fas fa-pause"></i> Pause
+                    </button>
+                    <button id="reset-breath" class="btn btn-secondary">
+                        <i class="fas fa-redo"></i> Reset
+                    </button>
+                </div>
+                
+                <div class="breathing-pattern">
+                    <div class="pattern-phase" id="inhale-phase">
+                        <span class="phase-label">Inhale</span>
+                        <span class="phase-time">4s</span>
+                        <div class="phase-indicator" id="inhale-indicator"></div>
+                    </div>
+                    <div class="pattern-phase" id="hold-phase">
+                        <span class="phase-label">Hold</span>
+                        <span class="phase-time">4s</span>
+                        <div class="phase-indicator" id="hold-indicator"></div>
+                    </div>
+                    <div class="pattern-phase" id="exhale-phase">
+                        <span class="phase-label">Exhale</span>
+                        <span class="phase-time">4s</span>
+                        <div class="phase-indicator" id="exhale-indicator"></div>
+                    </div>
+                </div>
+                
+                <div class="breathing-progress">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+                
+                <div class="cycle-counter">
+                    <span>Cycle: </span>
+                    <span id="cycle-count">1</span>
+                    <span>/ 5</span>
+                </div>
+            </div>
+            
+            <div class="benefits-card">
+                <h3>✨ Benefits of Deep Breathing</h3>
+                <ul class="benefits-list">
+                    <li>
+                        <div class="benefit-icon" style="background: rgba(255, 71, 87, 0.1);">
+                            <i class="fas fa-heart" style="color: #ff4757;"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <strong>Reduces Stress</strong>
+                            <p>Lowers cortisol levels and calms the nervous system</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="benefit-icon" style="background: rgba(72, 52, 212, 0.1);">
+                            <i class="fas fa-brain" style="color: #4834d4;"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <strong>Improves Focus</strong>
+                            <p>Increases oxygen flow to the brain, enhancing clarity</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="benefit-icon" style="background: rgba(38, 222, 129, 0.1);">
+                            <i class="fas fa-lungs" style="color: #26de81;"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <strong>Lung Capacity</strong>
+                            <p>Strengthens respiratory muscles and improves oxygenation</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="benefit-icon" style="background: rgba(235, 77, 75, 0.1);">
+                            <i class="fas fa-heartbeat" style="color: #eb4d4b;"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <strong>Blood Pressure</strong>
+                            <p>Helps lower blood pressure and heart rate</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="benefit-icon" style="background: rgba(112, 111, 211, 0.1);">
+                            <i class="fas fa-moon" style="color: #706fd3;"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <strong>Better Sleep</strong>
+                            <p>Promotes relaxation and improves sleep quality</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="benefit-icon" style="background: rgba(46, 204, 113, 0.1);">
+                            <i class="fas fa-shield-alt" style="color: #2ecc71;"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <strong>Immune System</strong>
+                            <p>Boosts immune function through reduced stress</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cancer Articles Preview -->
+    <section class="cancer-preview">
+        <h2 class="section-title">Cancer Awareness Articles</h2>
+        <p class="section-subtitle">Stay informed about cancer prevention, symptoms, and treatment</p>
+        
+        <div class="articles-grid">
+            <div class="article-card">
+                <div class="article-image lung-image">
+                    <div class="image-overlay"></div>
+                    <i class="fas fa-lungs"></i>
+                </div>
+                <div class="article-content">
+                    <span class="cancer-type">Lung Cancer</span>
+                    <h3>Understanding Lung Cancer</h3>
+                    <p>Learn about early warning signs, risk factors, and prevention strategies.</p>
+                    <div class="stats">
+                        <span><i class="fas fa-users"></i> 2.2M cases/year</span>
+                        <span><i class="fas fa-skull"></i> Leading cause</span>
+                    </div>
+                    <a href="cancer-articles.html#lung" class="read-more">Read Full Article →</a>
+                </div>
+            </div>
+            
+            <div class="article-card">
+                <div class="article-image brain-image">
+                    <div class="image-overlay"></div>
+                    <i class="fas fa-brain"></i>
+                </div>
+                <div class="article-content">
+                    <span class="cancer-type">Brain Cancer</span>
+                    <h3>Brain Tumors: What to Know</h3>
+                    <p>Understanding brain tumor symptoms, diagnosis options, and treatments.</p>
+                    <div class="stats">
+                        <span><i class="fas fa-users"></i> 300k cases/year</span>
+                        <span><i class="fas fa-dna"></i> 120+ types</span>
+                    </div>
+                    <a href="cancer-articles.html#brain" class="read-more">Read Full Article →</a>
+                </div>
+            </div>
+            
+            <div class="article-card">
+                <div class="article-image breast-image">
+                    <div class="image-overlay"></div>
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div class="article-content">
+                    <span class="cancer-type">Breast Cancer</span>
+                    <h3>Early Detection Saves Lives</h3>
+                    <p>Essential information about screening, self-examination, and early detection.</p>
+                    <div class="stats">
+                        <span><i class="fas fa-users"></i> 2.3M cases/year</span>
+                        <span><i class="fas fa-check-circle"></i> 99% survival</span>
+                    </div>
+                    <a href="cancer-articles.html#breast" class="read-more">Read Full Article →</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="center-btn">
+            <a href="cancer-articles.html" class="btn btn-primary">View All Articles</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="about">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>AI HealthCare</h4>
+                <p>Your trusted AI-powered health information platform. For educational purposes only.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">🏠 Home</a></li>
+                    <li><a href="#body-map">👤 Body Map</a></li>
+                    <li><a href="#ai-chat">💬 AI Chat</a></li>
+                    <li><a href="#stress-relief">🧘 Stress Relief</a></li>
+                    <li><a href="cancer-articles.html">📚 Cancer Articles</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> support@aihealthcare.com</li>
+                    <li><i class="fas fa-phone"></i> +91 12345 67890</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Mumbai, India</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 AI HealthCare. All rights reserved. | For educational purposes only</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
