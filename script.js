@@ -53,6 +53,27 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    part.addEventListener('mouseenter', function () {
+        this.style.fill = '#2d7ee9';
+    });
+
+    part.addEventListener('mouseleave', function () {
+        if (!this.classList.contains('active')) {
+            this.style.fill = '#c5d9ff';
+        }
+    });
+
+    const faders = document.querySelectorAll('.fade-in');
+
+    window.addEventListener('scroll', () => {
+        faders.forEach(el => {
+            const top = el.getBoundingClientRect().top;
+            if (top < window.innerHeight - 100) {
+                el.classList.add('show');
+            }
+        });
+    });
+
     // ===== CHATBOT =====
     const chatMessages = document.getElementById('chat-messages');
     const userInput = document.getElementById('user-input');
@@ -96,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": "Bearer YOUR_API_KEY"
+                    "Authorization": "Bearer sk-xxxx"
                 },
                 body: JSON.stringify({
                     model: "gpt-4o-mini",
@@ -137,7 +158,12 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             const response = await getBotResponse(message);
-            addMessage(response, 'bot');
+
+            // Generate smart report
+            const report = generateHealthReport(message);
+
+            // Combine both
+            addMessage(response + "<br><br>" + report, 'bot');
         });
     }
 
@@ -203,3 +229,30 @@ document.addEventListener('DOMContentLoaded', function () {
     if (startBtn) startBtn.addEventListener('click', startBreathing);
 
 });
+
+function generateHealthReport(input) {
+    input = input.toLowerCase();
+
+    let score = 0;
+    let level = "Low";
+
+    if (input.includes("chest pain") || input.includes("breathing")) score += 5;
+    if (input.includes("fever") || input.includes("cough")) score += 2;
+    if (input.includes("severe") || input.includes("pain")) score += 3;
+
+    if (score >= 6) level = "High";
+    else if (score >= 3) level = "Medium";
+
+    return `
+🧾 Health Report:
+
+🔍 Symptoms: ${input}
+
+📊 Risk Level: ${level}
+
+💡 Recommendation:
+${level === "High" ? "🚨 Seek immediate medical help." :
+            level === "Medium" ? "⚠️ Monitor and consult doctor." :
+                "✅ Rest and basic care recommended."}
+`;
+}
