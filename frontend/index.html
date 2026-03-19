@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI HealthCare - Powered by Real APIs</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation (same as before) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>AI HealthCare</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#symptom-checker">Symptom Checker</a></li>
+                <li><a href="#medication-lookup">Medications</a></li>
+                <li><a href="#bmi-calculator">BMI Calculator</a></li>
+                <li><a href="#health-news">Health News</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>AI-Powered Healthcare with Real Medical APIs</h1>
+            <p>Get instant, accurate health information from trusted sources including NHS, Medplum FHIR, and Google Gemini AI</p>
+            <div class="hero-buttons">
+                <a href="#symptom-checker" class="btn btn-primary">Check Symptoms</a>
+                <a href="#medication-lookup" class="btn btn-secondary">Lookup Medications</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <i class="fas fa-microscope"></i>
+        </div>
+    </section>
+
+    <!-- Symptom Checker Section - Powered by RapidAPI -->
+    <section id="symptom-checker" class="symptom-checker">
+        <h2 class="section-title">🔍 AI Symptom Checker</h2>
+        <p class="section-subtitle">Powered by Medical Diagnosis API [citation:9]</p>
+        
+        <div class="checker-container">
+            <div class="input-card">
+                <h3>Describe Your Symptoms</h3>
+                <div class="symptom-inputs">
+                    <div class="input-group">
+                        <label>Age</label>
+                        <input type="number" id="patient-age" placeholder="e.g., 30" value="30">
+                    </div>
+                    <div class="input-group">
+                        <label>Gender</label>
+                        <select id="patient-gender">
+                            <option value="unspecified">Prefer not to say</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="symptom-tags" id="symptom-tags">
+                    <!-- Symptoms will be added here as tags -->
+                </div>
+                
+                <div class="symptom-input-row">
+                    <input type="text" id="symptom-input" placeholder="Type a symptom and press Enter (e.g., headache, fever)">
+                    <button id="add-symptom-btn" class="btn btn-secondary">Add</button>
+                </div>
+                
+                <button id="analyze-symptoms-btn" class="btn btn-primary full-width">
+                    <i class="fas fa-search"></i> Analyze Symptoms
+                </button>
+                <div class="loader" id="symptom-loader" style="display: none;"></div>
+            </div>
+            
+            <div class="results-card" id="symptom-results">
+                <h3>Analysis Results</h3>
+                <div class="disclaimer">
+                    <i class="fas fa-info-circle"></i> For educational purposes only. Always consult a doctor.
+                </div>
+                <div id="symptom-results-content">
+                    <p>Add symptoms and click Analyze to see possible conditions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Medication Lookup Section - Powered by NHS API -->
+    <section id="medication-lookup" class="medication-lookup">
+        <h2 class="section-title">💊 Medication Information</h2>
+        <p class="section-subtitle">Powered by NHS Content API [citation:7]</p>
+        
+        <div class="medication-container">
+            <div class="search-card">
+                <h3>Search Medications</h3>
+                <div class="search-row">
+                    <input type="text" id="medication-search" placeholder="Enter medication name (e.g., ibuprofen, paracetamol)">
+                    <button id="search-medication-btn" class="btn btn-primary">
+                        <i class="fas fa-search"></i> Search
+                    </button>
+                </div>
+                <div class="loader" id="medication-loader" style="display: none;"></div>
+            </div>
+            
+            <div class="medication-results" id="medication-results" style="display: none;">
+                <!-- Medication results will appear here -->
+            </div>
+            
+            <div class="popular-medications">
+                <h4>Popular Medications</h4>
+                <div class="med-tags">
+                    <span class="med-tag" data-med="ibuprofen">Ibuprofen</span>
+                    <span class="med-tag" data-med="paracetamol">Paracetamol</span>
+                    <span class="med-tag" data-med="amoxicillin">Amoxicillin</span>
+                    <span class="med-tag" data-med="omeprazole">Omeprazole</span>
+                    <span class="med-tag" data-med="metformin">Metformin</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BMI Calculator with AI Recommendations -->
+    <section id="bmi-calculator" class="bmi-calculator">
+        <h2 class="section-title">📊 BMI Calculator with AI Recommendations</h2>
+        <p class="section-subtitle">Powered by Google Gemini AI</p>
+        
+        <div class="bmi-container">
+            <div class="calculator-card">
+                <div class="bmi-inputs">
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>Weight (kg)</label>
+                            <input type="number" id="weight" placeholder="70" value="70">
+                        </div>
+                        <div class="input-group">
+                            <label>Height (cm)</label>
+                            <input type="number" id="height" placeholder="170" value="170">
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>Age</label>
+                            <input type="number" id="bmi-age" placeholder="30" value="30">
+                        </div>
+                        <div class="input-group">
+                            <label>Gender</label>
+                            <select id="bmi-gender">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="calculate-bmi-btn" class="btn btn-primary full-width">
+                    <i class="fas fa-calculator"></i> Calculate BMI & Get Recommendations
+                </button>
+                <div class="loader" id="bmi-loader" style="display: none;"></div>
+            </div>
+            
+            <div class="bmi-results" id="bmi-results" style="display: none;">
+                <!-- BMI results will appear here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Health News Section -->
+    <section id="health-news" class="health-news">
+        <h2 class="section-title">📰 Latest Health News</h2>
+        <p class="section-subtitle">Stay updated with the latest medical breakthroughs</p>
+        
+        <div class="news-container" id="news-container">
+            <div class="loader" id="news-loader"></div>
+        </div>
+    </section>
+
+    <!-- AI Chatbot Section - Powered by Gemini -->
+    <section id="ai-chat" class="ai-chat">
+        <h2 class="section-title">🤖 AI Health Assistant</h2>
+        <p class="section-subtitle">Powered by Google Gemini AI</p>
+        
+        <div class="chat-container">
+            <div class="chat-messages" id="chat-messages">
+                <div class="message bot-message">
+                    <div class="message-content">
+                        Hello! I'm your AI health assistant powered by Google Gemini. How can I help you today?
+                    </div>
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="chat-input" placeholder="Ask me anything about health...">
+                <button id="send-chat-btn"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="about">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>AI HealthCare</h4>
+                <p>Powered by real medical APIs including NHS, Medplum FHIR, Google Gemini, and RapidAPI</p>
+                <div class="api-badges">
+                    <span class="api-badge">NHS</span>
+                    <span class="api-badge">FHIR</span>
+                    <span class="api-badge">Gemini</span>
+                    <span class="api-badge">RapidAPI</span>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Data Sources</h4>
+                <ul>
+                    <li><a href="https://digital.nhs.uk/developer/api-catalogue/nhs-website-content" target="_blank">NHS Content API</a></li>
+                    <li><a href="https://www.medplum.com/docs/api/fhir" target="_blank">Medplum FHIR</a></li>
+                    <li><a href="https://rapidapi.com/bilgisamapi/api/ai-medical-diagnosis-api-symptoms-to-results" target="_blank">Medical Diagnosis API</a></li>
+                    <li><a href="https://healthit.gov/data/api" target="_blank">HealthIT.gov Open Data</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 AI HealthCare. All data for educational purposes only. [citation:2][citation:7][citation:9]</p>
+        </div>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+</html>

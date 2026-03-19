@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancer Awareness Articles - AI HealthCare</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Additional styles for articles page */
+        .articles-hero {
+            background: linear-gradient(135deg, #0047ab, #2d7ee9);
+            color: white;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .articles-hero::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            right: -100px;
+            top: -100px;
+        }
+        
+        .articles-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .articles-hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .articles-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        .cancer-article {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 71, 171, 0.1);
+            border: 1px solid #e8f0fe;
+        }
+        
+        .article-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #e8f0fe;
+            padding-bottom: 1.5rem;
+        }
+        
+        .article-icon {
+            font-size: 3rem;
+            color: #0047ab;
+            background: #e8f0fe;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        
+        .article-header h2 {
+            color: #0047ab;
+            font-size: 2rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #0047ab, #2d7ee9);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 71, 171, 0.2);
+        }
+        
+        .stat-card .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-card .label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .symptoms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .symptom-item {
+            background: #f8faff;
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 4px solid #0047ab;
+        }
+        
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+        
+        .warning-box h4 {
+            color: #856404;
+            margin-bottom: 1rem;
+        }
+        
+        .risk-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .risk-item {
+            background: #f8faff;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: 0.3s;
+        }
+        
+        .risk-item:hover {
+            transform: translateY(-5px);
+            background: #e8f0fe;
+        }
+        
+        .risk-item i {
+            font-size: 2.5rem;
+            color: #0047ab;
+            margin-bottom: 1rem;
+        }
+        
+        .back-home {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .articles-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .article-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>AI HealthCare</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#body-map">Body Map</a></li>
+                <li><a href="index.html#ai-chat">AI Chat</a></li>
+                <li><a href="index.html#stress-relief">Stress Relief</a></li>
+                <li><a href="cancer-articles.html" class="active">Cancer Articles</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="articles-hero">
+        <h1>Cancer Awareness & Education</h1>
+        <p>Comprehensive information about different types of cancer, symptoms, prevention, and treatment</p>
+    </section>
+
+    <!-- Articles Container -->
+    <div class="articles-container">
+        <!-- Lung Cancer Article -->
+        <article id="lung" class="cancer-article">
+            <div class="article-header">
+                <div class="article-icon">
+                    <i class="fas fa-lungs"></i>
+                </div>
+                <h2>Lung Cancer: Comprehensive Guide</h2>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="number">2.2M</div>
+                    <div class="label">New cases/year</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">85%</div>
+                    <div class="label">Smoking-related</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">63%</div>
+                    <div class="label">5-year survival (early stage)</div>
+                </div>
+            </div>
+            
+            <h3>📋 Overview</h3>
+            <p>Lung cancer is the leading cause of cancer deaths worldwide. It begins in the lungs and can spread to other parts of the body. There are two main types: non-small cell lung cancer (most common) and small cell lung cancer.</p>
+            
+            <h3>🚩 Common Symptoms</h3>
+            <div class="symptoms-grid">
+                <div class="symptom-item">Persistent cough that worsens</div>
+                <div class="symptom-item">Coughing up blood</div>
+                <div class="symptom-item">Shortness of breath</div>
+                <div class="symptom-item">Chest pain</div>
+                <div class="symptom-item">Hoarseness</div>
+                <div class="symptom-item">Unexplained weight loss</div>
+            </div>
+            
+            <div class="warning-box">
+                <h4>⚠️ When to See a Doctor Immediately</h4>
+                <p>If you have a persistent cough for more than 3 weeks, cough up blood, or experience unexplained chest pain, seek medical attention immediately.</p>
+            </div>
+            
+            <h3>⚠️ Risk Factors</h3>
+            <div class="risk-grid">
+                <div class="risk-item">
+                    <i class="fas fa-smoking"></i>
+                    <h4>Smoking</h4>
+                    <p>Responsible for 85% of cases</p>
+                </div>
+                <div class="risk-item">
+                    <i class="fas fa-wind"></i>
+                    <h4>Radon Gas</h4>
+                    <p>Second leading cause</p>
+                </div>
+                <div class="risk-item">
+                    <i class="fas fa-industry"></i>
+                    <h4>Asbestos</h4>
+                    <p>Occupational exposure</p>
+                </div>
+                <div class="risk-item">
+                    <i class="fas fa-dna"></i>
+                    <h4>Family History</h4>
+                    <p>Genetic factors</p>
+                </div>
+            </div>
+            
+            <h3>🛡️ Prevention</h3>
+            <ul>
+                <li>Don't smoke or quit smoking</li>
+                <li>Avoid secondhand smoke</li>
+                <li>Test your home for radon</li>
+                <li>Eat a healthy diet rich in fruits and vegetables</li>
+                <li>Exercise regularly</li>
+            </ul>
+        </article>
+
+        <!-- Brain Cancer Article -->
+        <article id="brain" class="cancer-article">
+            <div class="article-header">
+                <div class="article-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h2>Brain Cancer: Understanding Brain Tumors</h2>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="number">300K</div>
+                    <div class="label">New cases/year</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">120+</div>
+                    <div class="label">Types of tumors</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">35%</div>
+                    <div class="label">Malignant tumors</div>
+                </div>
+            </div>
+            
+            <h3>📋 Overview</h3>
+            <p>Brain cancer occurs when abnormal cells form in brain tissue. Tumors can be benign (non-cancerous) or malignant (cancerous). Primary brain tumors start in the brain, while metastatic tumors spread from other parts of the body.</p>
+            
+            <h3>🚩 Common Symptoms</h3>
+            <div class="symptoms-grid">
+                <div class="symptom-item">Frequent headaches that worsen</div>
+                <div class="symptom-item">Seizures</div>
+                <div class="symptom-item">Nausea and vomiting</div>
+                <div class="symptom-item">Vision problems</div>
+                <div class="symptom-item">Balance difficulties</div>
+                <div class="symptom-item">Personality changes</div>
+            </div>
+            
+            <div class="warning-box">
+                <h4>🚨 Emergency Symptoms</h4>
+                <p>Sudden severe headache, seizures, vision loss, or difficulty speaking require immediate medical attention.</p>
+            </div>
+            
+            <h3>⚠️ Risk Factors</h3>
+            <div class="risk-grid">
+                <div class="risk-item">
+                    <i class="fas fa-dna"></i>
+                    <h4>Family History</h4>
+                    <p>Genetic syndromes</p>
+                </div>
+                <div class="risk-item">
+                    <i class="fas fa-radiation"></i>
+                    <h4>Radiation</h4>
+                    <p>Previous exposure</p>
+                </div>
+                <div class="risk-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h4>Age</h4>
+                    <p>Risk increases with age</p>
+                </div>
+                <div class="risk-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>Weakened Immunity</h4>
+                    <p>Immune system disorders</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Breast Cancer Article -->
+        <article id="breast" class="cancer-article">
+            <div class="article-header">
+                <div class="article-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h2>Breast Cancer: Early Detection Saves Lives</h2>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="number">2.3M</div>
+                    <div class="label">New cases/year</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">99%</div>
+                    <div class="label">5-year survival (early stage)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">1 in 8</div>
+                    <div class="label">Women will develop</div>
+                </div>
+            </div>
+            
+            <h3>📋 Overview</h3>
+            <p>Breast cancer is the most common cancer in women worldwide. It forms in breast cells and can spread to other parts of the body. Early detection through screening significantly improves survival rates.</p>
+            
+            <h3>🚩 Common Symptoms</h3>
+            <div class="symptoms-grid">
+                <div class="symptom-item">New lump in breast or underarm</div>
+                <div class="symptom-item">Thickening or swelling</div>
+                <div class="symptom-item">Skin irritation or dimpling</div>
+                <div class="symptom-item">Nipple discharge or retraction</div>
+                <div class="symptom-item">Breast pain</div>
+                <div class="symptom-item">Redness or scaliness</div>
+            </div>
+            
+            <div class="warning-box">
+                <h4>🎗️ Self-Examination Guide</h4>
+                <p>Perform monthly self-exams: in shower, in front of mirror, and lying down. Report any changes to your doctor immediately.</p>
+            </div>
+            
+            <h3>⚠️ Risk Factors</h3>
+            <div class="risk-grid">
+                <div class="risk-item">
+                    <i class="fas fa-venus"></i>
+                    <h4>Being Female</h4>
+                    <p>Primary risk factor</p>
+                </div>
+                <div class="risk-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h4>Age >50</h4>
+                    <p>Risk increases with age</p>
+                </div>
+                <div class="risk-item">
+                    <i class="fas fa-dna"></i>
+                    <h4>BRCA Genes</h4>
+                    <p>Genetic mutations</p>
+                </div>
+                <div class="risk-item">
+                    <i class="fas fa-history"></i>
+                    <h4>Family History</h4>
+                    <p>First-degree relatives</p>
+                </div>
+            </div>
+            
+            <h3>🛡️ Prevention & Screening</h3>
+            <ul>
+                <li>Monthly self-exams starting at age 20</li>
+                <li>Clinical breast exams every 1-3 years</li>
+                <li>Mammograms starting at age 40-45</li>
+                <li>Maintain healthy weight and exercise</li>
+                <li>Limit alcohol consumption</li>
+            </ul>
+        </article>
+    </div>
+
+    <!-- Back to Home -->
+    <div class="back-home">
+        <a href="index.html" class="btn btn-primary">
+            <i class="fas fa-home"></i> Back to Home
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>AI HealthCare</h4>
+                <p>Your trusted AI-powered health information platform. For educational purposes only.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">🏠 Home</a></li>
+                    <li><a href="index.html#body-map">👤 Body Map</a></li>
+                    <li><a href="index.html#ai-chat">💬 AI Chat</a></li>
+                    <li><a href="index.html#stress-relief">🧘 Stress Relief</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 AI HealthCare. All rights reserved. | For educational purposes only</p>
+        </div>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+</html>
